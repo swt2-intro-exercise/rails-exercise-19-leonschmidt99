@@ -26,4 +26,13 @@ describe "New author page", type: :feature do
 
     find('input[type="submit"]').click
   end
+
+  it "should display an error message when filling in invalid values" do
+    page.fill_in 'author[first_name]', with: 'Alan'
+    page.fill_in 'author[last_name]', with: ''
+    page.fill_in 'author[homepage]', with: 'http://wikipedia.org/wiki/Alan_Turing'
+
+    find('input[type="submit"]').click
+    expect(page).to have_text 'error'
+  end
 end

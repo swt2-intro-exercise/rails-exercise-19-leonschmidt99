@@ -22,7 +22,7 @@ RSpec.describe "papers/edit", type: :view do
       assert_select "input[name=?]", "paper[year]"
     end
   end
-
+  
   it "contains a selection list for authors" do
     render
     expect(rendered).to have_field('paper[author_ids][]')

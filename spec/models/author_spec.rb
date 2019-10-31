@@ -17,4 +17,9 @@ describe "Author model", type: :model do
     expect(@author.name()).to eq('Alan Turing')
   end
 
+  it "should not be able to have an empty last name" do
+    @author.last_name = ""
+    expect(@author).to_not be_valid
+  end
+
 end

@@ -10,12 +10,18 @@ describe "The Author index page" do
   it "renders properly" do
   end
 
-  it "contains a table with columns for Name and Homepage" do
-    expect(page).to have_xpath('.//table/tr/th/Name')
-    expect(page).to have_xpath('.//table/tr/th/Homepage')
+  it "contains a table" do
+    expect(page).to have_css 'table'
+  end
 
-    expect(page).to have_xpath('.//table/tr/td/Alan Turing')
-    expect(page).to have_xpath('.//table/tr/td/http://wikipedia.org/wiki/Alan_Turing')
+  it "contains a table with appropriately filled columns Name and Homepage" do
+    within 'table' do
+      expect(page).to have_text 'Name'
+      expect(page).to have_text 'Homepage'
+
+      expect(page).to have_text 'Alan Turing'
+      expect(page).to have_text 'http://wikipedia.org/wiki/Alan_Turing'
+    end
   end
 
   it "links to an authors detail page" do

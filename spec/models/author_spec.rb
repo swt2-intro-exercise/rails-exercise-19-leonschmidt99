@@ -3,7 +3,8 @@ require 'rails_helper'
 describe "Author model", type: :model do
 
   before :each do
-    @author = Author.new(first_name: 'Alan', last_name: 'Turing', homepage: 'http://wikipedia.org/wiki/Alan_Turing')
+    # @author = Author.new(first_name: 'Alan', last_name: 'Turing', homepage: 'http://wikipedia.org/wiki/Alan_Turing')
+    @author = build(:author)
   end
 
   it "should have attributes for first name, last name and homepage" do

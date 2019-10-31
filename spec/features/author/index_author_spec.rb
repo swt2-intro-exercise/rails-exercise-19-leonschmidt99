@@ -25,7 +25,15 @@ describe "The Author index page" do
   end
 
   it "links to an authors detail page" do
-    expect(page).to have_link 'Alan Turing', href: author_path(@author)
+    within 'table' do
+      expect(page).to have_link 'Alan Turing', href: author_path(@author)
+    end
+  end
+
+  it "contains a link to an authors editing page" do
+    within 'table' do
+      expect(page).to have_link 'Edit', href: edit_author_path(@author)
+    end
   end
 
   it "contains a link to add new authors" do

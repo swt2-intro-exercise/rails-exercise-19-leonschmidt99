@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "The Author Show page", type: :feature do
 
   before :each do
-    @author = build(:author)
+    @author = create(:author)
     visit author_path(@author)
   end
   

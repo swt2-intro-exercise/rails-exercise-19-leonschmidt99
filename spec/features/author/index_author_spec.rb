@@ -45,7 +45,7 @@ describe "The Author index page" do
   it "allows for deletion of an author when clicking the respective link" do
     within 'table' do
       prev_count = Author.count
-      find('a[method="delete"]').click
+      find('a[data-method="delete"]').click
       expect(prev_count).to eq(Author.count + 1)
     end
   end

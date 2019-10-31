@@ -36,6 +36,20 @@ describe "The Author index page" do
     end
   end
 
+  it "contains a link to delete an author" do
+    within 'table' do
+      expect(page).to have_link 'Delete', href: author_path(@author)
+    end
+  end
+
+  it "allows for deletion of an author when clicking the respective link" do
+    within 'table' do
+      prev_count = Author.count
+      find('a[method="delete"]').click
+      expect(prev_count).to eq(Author.count + 1)
+    end
+  end
+
   it "contains a link to add new authors" do
     expect(page).to have_link 'Add author', href: new_author_path
   end
